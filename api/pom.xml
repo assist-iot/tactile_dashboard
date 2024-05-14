@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>eu.assistiot</groupId>
+	<artifactId>dashboard</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>dashboard</name>
+	<description>A parent POM for the project dashboard</description>
+	<url>https://svn.prodevelop.es/svn/XXX</url>
+
+	<parent>
+		<groupId>es.prodevelop</groupId>
+		<artifactId>es.prodevelop.pui9.pui_dashboards</artifactId>
+		<version>1.17.0</version>
+	</parent>
+
+	<!-- Allow to check maven central snapshots repository to look for libraries -->
+	<repositories>
+	    <repository>
+	        <id>maven_central_snapshots</id>
+	        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	    </repository>
+	</repositories>
+
+	<scm>
+		<connection>scm:svn:https://svn.prodevelop.es/svn/XXX/src/trunk/dashboard</connection>
+		<developerConnection>scm:svn:https://svn.prodevelop.es/svn/XXX/src/trunk/dashboard</developerConnection>
+	</scm>
+
+	<properties>
+		<scm-tag-base>https://svn.prodevelop.es/svn/XXX/src/tags</scm-tag-base>
+		<scm-branch-base>https://svn.prodevelop.es/svn/XXX/src/branches</scm-branch-base>
+		<pui-project-version>1.17.0</pui-project-version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>dashboard.dto</module>
+		<module>dashboard.dao</module>
+		<module>dashboard.bo</module>
+		<module>dashboard.web</module>
+	</modules>
+
+	<developers>
+		<developer>
+			<name>Your name</name>
+			<email>your_email@prodevelop.es</email>
+			<organization>Prodevelop</organization>
+			<organizationUrl>https://www.prodevelop.es/</organizationUrl>
+		</developer>
+	</developers>
+</project>

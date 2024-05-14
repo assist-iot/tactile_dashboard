@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+  <Resource name="jdbc/dashboard" auth="Container" type="javax.sql.DataSource"
+    driverClassName="org.postgresql.Driver"
+    url="jdbc:postgresql://${db_host_name}:5432/dashboard-pui9"
+    username="${db_user}"
+    password="${db_password}"
+    maxActive="100" maxIdle="2" maxWait="10000" />
+</Context>

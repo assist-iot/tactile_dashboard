@@ -1,0 +1,78 @@
+{
+	"name": "dashboard",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-pro": "5.15.4",
+		"@stomp/stompjs": "^6.1.2",
+		"@turf/turf": "^6.4.0",
+		"core-js": "3.22.4",
+		"deepmerge": "4.2.2",
+		"ol": "^6.15.1",
+		"ol-ext": "^3.2.30",
+		"pui9-admin": "1.18.0",
+		"pui9-base": "beta_1.18.x",
+		"pui9-components": "1.18.0",
+		"pui9-dashboard": "1.18.0",
+		"pui9-datatables": "1.18.0",
+		"pui9-login": "1.18.0",
+		"pui9-menu": "1.18.0",
+		"pui9-mixins": "1.18.0",
+		"pui9-notifications": "1.18.0",
+		"pui9-requests": "1.18.0",
+		"pui9-store": "1.18.0",
+		"pui9-styles": "1.18.0",
+		"pui9-translations": "1.18.0",
+		"vue": "2.6.14",
+		"vue-i18n": "8.26.5",
+		"vue-router": "3.5.2",
+		"vuetify": "2.6.5",
+		"vuex": "3.6.2"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "4.5.13",
+		"@vue/cli-plugin-eslint": "4.5.13",
+		"@vue/cli-service": "4.5.13",
+		"babel-eslint": "10.1.0",
+		"css-loader": "4.2.1",
+		"eslint": "6.8.0",
+		"eslint-plugin-vue": "6.2.2",
+		"postcss-css-variables": "0.18.0",
+		"postcss-import": "12.0.1",
+		"postcss-loader": "4.3.0",
+		"postcss-nested": "4.2.3",
+		"postcss-url": "8.0.0",
+		"sass": "1.42.1",
+		"sass-loader": "10.2.0",
+		"stylus": "0.55.0",
+		"stylus-loader": "4.3.3",
+		"vue-cli-plugin-vuetify": "2.4.8",
+		"vue-template-compiler": "2.6.14",
+		"vuetify-loader": "1.7.3"
+	},
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"node": true
+		},
+		"extends": [
+			"plugin:vue/essential",
+			"eslint:recommended"
+		],
+		"parserOptions": {
+			"parser": "babel-eslint"
+		},
+		"rules": {
+			"no-unused-vars": "off"
+		}
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions"
+	]
+}

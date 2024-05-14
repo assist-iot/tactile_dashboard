@@ -1,0 +1,11 @@
+Cliente completo, con todas las dependencias disponibles:
+- Login
+- Menú
+- Componentes básicos
+- Pantallas de administración (variables, usuarios...)
+- Datatables
+- Documentos asociados
+- Generación de documentos
+- Traducciones
+- Conexión con el servidor de PUI9
+- ...

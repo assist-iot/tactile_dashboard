@@ -1,0 +1,87 @@
+name: dashboard-pui9
+services:
+    web:
+      build:
+        context: ./web
+      image: assistiot/tacticle_dashboard:web-latest
+      environment:
+        DASHBOARD_HOST_NAME: api
+        DASHBOARD_HOST_PORT: 8080
+        ENABLE_AUTH_IDM: false
+      ports:
+        - 8081:80
+      depends_on:
+        - api
+      networks:
+        - assist
+      profiles:
+        - prod
+
+    web-dev:
+      image: node:12.22.1
+      ports:
+        - 8081:8081
+      working_dir: /src
+      volumes:
+        - "./web:/src"
+      environment:
+        HOST: 0.0.0.0
+        DASHBOARD_HOST_NAME: api
+        DASHBOARD_HOST_PORT: 8080
+        ENABLE_AUTH_IDM: false
+      command: bash -c "npm install && npm run serve"
+      # command: bash -c "npm install --legacy-peer-deps && npm run serve"
+      depends_on:
+        - api
+      networks:
+        - assist
+      profiles:
+        - dev-web-node
+
+    api:
+      build:
+        context: ./api
+      env_file: .env
+      image: assistiot/tacticle_dashboard:api-latest
+      environment:
+        CATALINA_OPTS: -Ddb_host_name=${DB_HOST_NAME} -Ddb_user=${DB_USER} -Ddb_password=${DB_PASSWORD} -${TOMCAT_CATALINA_OPTS_XMS} -${TOMCAT_CATALINA_OPTS_XMX} -${TOMCAT_CATALINA_OPTS_REMOTE_DEBUG} -Djava.awt.headless=true -Dlogs.dir=${TOMCAT_CATALINA_LOGS_DIR} 
+
+      restart: always
+      ports:
+        - 8080:8080
+      depends_on:
+        - postgres
+      networks:
+        - assist
+      profiles:
+        - prod
+        - dev-web
+        - dev-web-node
+
+    postgres:
+      build:
+        context: ./database
+      image: assistiot/tacticle_dashboard:db-latest
+      restart: always
+      environment:
+        POSTGRES_USER: dashboard
+        POSTGRES_DB: dashboard-pui9
+        POSTGRES_PASSWORD: docker
+      ports:
+        - 5432:5432
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      networks:
+        - assist
+      profiles:
+      - prod
+      - dev-web
+      - dev-web-node
+      - dev-api
+      - dev
+volumes:
+  postgres_data:
+
+networks:
+  assist:
+    driver: bridge

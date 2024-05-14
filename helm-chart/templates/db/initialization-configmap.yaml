@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "db.fullname" . }}-initdb-script
+  labels:
+    {{- include "db.labels" . | nindent 4 }}
+data:
+  05_external_services.sql: |-
+    UPDATE pui_variable SET value = '{{ .Values.db.urlExternalServices.KIBANA_URL }}' WHERE variable = 'BUSINESS_KPI_URL';
+    UPDATE pui_variable SET value = '{{ .Values.db.urlExternalServices.PROMETHEUS_URL }}' WHERE variable = 'PROMETHEUS_URL';
+    UPDATE pui_variable SET value = '{{ .Values.db.Keykloack.PUBLIC_KEY }}' WHERE variable = 'SESSION_KEYCLOAK_PUBLIC';
+    UPDATE pui_variable SET value = '{{ .Values.db.Keykloack.SECRET }}' WHERE variable = 'KEYCLOAK_TOKEN';
+    UPDATE pui_variable SET value = '{{ .Values.db.Keykloack.TOKEN_ENDPOINT }}' WHERE variable = 'AUTHZ_IDM_URL_GET_TOKEN';
+    UPDATE pui_variable SET value = '{{ .Values.db.Keykloack.CLIEN_ID }}' WHERE variable = 'AUTHZ_IDM_CLIENT_ID';
+    UPDATE pui_variable SET value = '{{ .Values.db.Authzserver.URL_EVALUATE }}' WHERE variable = 'AUTHZ_SERVER_URL_VALIDATE';
+    UPDATE pui_variable SET value = '{{ .Values.db.Authzserver.SECURITY_DOMAIN }}' WHERE variable = 'AUTHZ_SERVER_SECURITY_DOMAIN';
+
+
+

@@ -1,0 +1,9 @@
+.hypothesis
+.vscode
+.classpath
+.settings/
+
+api/*.project
+api/**/*.project
+__pycache__
+target/

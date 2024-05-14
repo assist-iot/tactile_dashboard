@@ -1,0 +1,91 @@
+/* imagen pantalla login en desktop */
+
+.pui-login__image--desktop {
+	background-image: url('./../assets/login_hd.jpg') !important;
+	background-size: cover;
+	background-position: center;
+	height: 100%;
+	width: 100%;
+}
+
+
+/* imagen pantalla login en móvil */
+/*
+@media (max-width: 1100px) {
+	.pui-login__image--desktop {
+		background-image: url('./../assets/login.png') !important;
+	}
+}
+*/
+
+
+/* logo aplicación en el menú */
+
+.puimenu-leftBar__logo-img {
+	background-image: url('./../assets/app_logo_mini.png') !important;
+	background-size: cover;
+	background-position: center;
+}
+
+
+/* logo aplicación en el home */
+/*
+.puiwellcomepanel__logo-img {
+	background: url('./../assets/app_logo.png') no-repeat center;
+*/
+
+
+/* Custom styles Assist-iot  */
+:root {
+	--primarycolor: #863B59;
+	--secondarycolor: #628692;
+	--inputfocuscolor: #863B59;
+	--main-200: #9C4467;
+	--main-150: #AA4B71;
+	--main-85: #BB6386;
+	--main-25: #CD8EA7;
+	--main-10: #F9F1F4;
+}
+
+.login__logo {
+	background: url('./../assets/app_logo.webp') no-repeat center;
+	background-size: contain;
+	height: 55px;
+}
+
+.pui-login-display-area__margin {
+	height: 0;
+}
+
+.pui-login__display-area > div{
+	max-width: 100% !important;
+	margin: 0 !important;
+	height: 100%;
+}
+
+.puimenu-leftBar__btn.disabled:hover {
+	cursor: default !important;
+}
+
+.puimenu-leftBar__btn.disabled:hover .v-icon.error--text {
+	color: var(--v-error-base) !important;
+}
+
+.puimenu {
+	width: 240px!important;
+	left: 64px!important;
+	background-color: var(--main-150)!important;
+	margin-top: 0!important;
+	max-height: 100%!important;
+	z-index: 100;
+}
+
+.treeElement.treeElementLevelTwo.treeElementOpen, .treeElement.treeElementLevelTwo:hover {
+	background-color: var(--main-200)!important;
+	border-radius: 5px!important;
+}
+
+.treeElement .treeElementHeader:hover {
+	background-color: transparent !important;
+	cursor: pointer;
+}
